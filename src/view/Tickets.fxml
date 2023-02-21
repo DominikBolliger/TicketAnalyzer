@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" text="+" textAlignment="CENTER" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="tblvTickets" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox fx:id="hBoxPages" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
