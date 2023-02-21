@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<page region="CPH">
+		<ticket>
+			<url>HS-23281</url>
+			<checkwith>David</checkwith>
+			<info>This is a test</info>
+			<software>JMS</software>
+		</ticket>
+	</page>
+	<page region="UK">
+		<ticket>
+			<url>sdfgsdg</url>
+			<checkwith>sdfgsdfg</checkwith>
+			<info>sdfgsdfg</info>
+			<software>JMS</software>
+		</ticket>
+	</page>
+	<page region="Australia">
+		<ticket>
+			<url>sdfgsg</url>
+			<checkwith>sdfgsg</checkwith>
+			<info>sdfgsdgf</info>
+			<software>JMS</software>
+		</ticket>
+	</page>
+</window>
