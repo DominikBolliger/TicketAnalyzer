@@ -5,18 +5,24 @@
 
 <HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketController">
    <children>
-      <VBox maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+      <VBox maxHeight="1.7976931348623157E308" HBox.hgrow="NEVER">
          <children>
             <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" text="+" textAlignment="CENTER" />
+                  <Button fx:id="btnAddTicket" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#addTicket" text="+" textAlignment="CENTER" />
                </children>
             </VBox>
          </children>
       </VBox>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
          <children>
-            <TableView fx:id="tblvTickets" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <TableView fx:id="tblvTickets" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="tcURL" prefWidth="104.39998704195023" text="URL" />
+                  <TableColumn fx:id="tcInfo" minWidth="0.0" prefWidth="158.80001831054688" text="Info" />
+                  <TableColumn fx:id="tcCheckWith" prefWidth="150.79998779296875" text="Check With" />
+                  <TableColumn fx:id="tcSoftware" prefWidth="167.4000244140625" text="Software" />
+               </columns></TableView>
             <HBox fx:id="hBoxPages" />
          </children>
       </VBox>

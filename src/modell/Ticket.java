@@ -1,5 +1,8 @@
 package modell;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +11,7 @@ public class Ticket {
     private String checkWith;
     private String info;
     private String software;
-
-    private static List<Ticket> ticketList = new ArrayList<>();
+    private static ObservableList ticketList = FXCollections.observableArrayList();
 
     public Ticket(String url, String checkWith, String info, String software) {
         this.url = url;
