@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import logic.XMLReader;
 import modell.Ticket;
 
+import javax.xml.transform.TransformerException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class TicketController {
     @FXML
     TableColumn<Ticket, String> tcSoftware;
     @FXML
-    public void initialize(){
+    public void initialize() throws TransformerException {
         buttonsList = new ArrayList<>();
         reader = new XMLReader();
         reader.readNodes();
@@ -47,6 +48,8 @@ public class TicketController {
     }
 
     private void createButtons(){
+        hBoxPages.getChildren().clear();
+        buttonsList.clear();
         for (String pageName:reader.getPageNames()){
             Button button = new Button(pageName);
             buttonsList.add(button);
@@ -60,9 +63,10 @@ public class TicketController {
         }
     }
     @FXML
-    private void addTicket(){
-        TextInputDialog tid = new TextInputDialog("Enter new Ticket Data");
-        tid.show();
-        //reader.addTicketToRegion();
+    private void addRegion(){
+        TextInputDialog tid = new TextInputDialog("Enter new Region name");
+        tid.showAndWait();
+        reader.addRegion(tid.getEditor().getText());
+        createButtons();
     }
 }
