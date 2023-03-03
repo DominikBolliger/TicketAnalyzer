@@ -21,6 +21,8 @@ public class TicketController {
     private String page;
     private XMLReader reader;
     private List<Button> buttonsList;
+    private TableRow<Object> selectedRow;
+    private ContextMenu contextMenu;
     @FXML
     protected HBox hBoxPages;
     @FXML
@@ -35,11 +37,15 @@ public class TicketController {
     TableColumn<Ticket, String> tcCheckWith;
     @FXML
     TableColumn<Ticket, String> tcSoftware;
+    @FXML
+    TableColumn<Ticket, Integer> tcPrio;
+    @FXML
+    TableColumn<Ticket, CheckBox> tcisDone;
 
     @FXML
     public void initialize() throws TransformerException {
-        tblvTickets.setOnContextMenuRequested(event -> TicketAnalyzerApplication.getContextMenu().show(tblvTickets, event.getX(), event.getY()));
         EventHandler<javafx.scene.input.MouseEvent> onTableViewClick = this::handleTableRowMouseClick;
+        createContextMenu();
         tblvTickets.setRowFactory(param -> {
             TableRow<Ticket> row = new TableRow<>();
             row.setOnMouseClicked(onTableViewClick);
@@ -54,6 +60,17 @@ public class TicketController {
         tcInfo.setCellValueFactory(new PropertyValueFactory<Ticket, String>("Info"));
         tcCheckWith.setCellValueFactory(new PropertyValueFactory<Ticket, String>("CheckWith"));
         tcSoftware.setCellValueFactory(new PropertyValueFactory<Ticket, String>("Software"));
+        tcPrio.setCellValueFactory(new PropertyValueFactory<Ticket, Integer>("Prio"));
+        tcisDone.setCellValueFactory(new PropertyValueFactory<Ticket, CheckBox>("isDone"));
+    }
+
+    private void createContextMenu() {
+        contextMenu = new ContextMenu();
+        MenuItem deleteItem = new MenuItem("delete");
+        deleteItem.setOnAction(event -> {
+            reader.deleteTicketInRegion(page, selectedRow);
+        });
+        contextMenu.getItems().add(deleteItem);
     }
 
     private void handleTableRowMouseClick(MouseEvent mouseEvent) {
@@ -67,7 +84,11 @@ public class TicketController {
                 ((ChangeTicketController) TicketAnalyzerApplication.getChangeTicketSceneLoader().getController()).setValuesToTextFields();
                 mouseEvent.consume();
             }
-        } else if(mouseEvent.getButton() == MouseButton.SECONDARY){
+        } else if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+            selectedRow = (TableRow<Object>) mouseEvent.getSource();
+            if (selectedRow.getItem() != null) {
+                contextMenu.show(tblvTickets.getScene().getWindow(), mouseEvent.getScreenX(), mouseEvent.getScreenY());
+            }
 
         }
     }
@@ -100,12 +121,12 @@ public class TicketController {
         if (mouseEvent.getClickCount() == 2) {
             TicketAnalyzerApplication.getSecondaryStage().setScene(TicketAnalyzerApplication.getAddTicketScene());
             TicketAnalyzerApplication.getSecondaryStage().setTitle("Add Ticket");
-            ((AddTicketController)TicketAnalyzerApplication.getAddTicketSceneLoader().getController()).setReader(reader);
+            ((AddTicketController) TicketAnalyzerApplication.getAddTicketSceneLoader().getController()).setReader(reader);
             TicketAnalyzerApplication.getSecondaryStage().show();
         }
     }
 
-    public void updateTableView(){
+    public void updateTableView() {
         tblvTickets.refresh();
     }
 

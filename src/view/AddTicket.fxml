@@ -62,6 +62,34 @@
             </TextField>
          </children>
       </HBox>
+      <HBox layoutX="20.0" layoutY="125.0">
+         <children>
+            <Label prefWidth="80.0" text="Prio">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfPrio">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="125.0">
+         <children>
+            <Label prefWidth="80.0" text="Is Done">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <CheckBox fx:id="cbIsDone" mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
       <Button fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createTicket" prefWidth="80.0" text="add" />
    </children>
    <padding>

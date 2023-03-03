@@ -3,27 +3,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketController">
+<HBox prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" HBox.hgrow="NEVER">
          <children>
-            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-               <children>
-                  <Button fx:id="btnAddTicket" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#addRegion" text="+" textAlignment="CENTER" />
-               </children>
-            </VBox>
+            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS">
          <children>
             <TableView fx:id="tblvTickets" maxWidth="1.7976931348623157E308" onMouseClicked="#clickedOnTableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <columns>
-                  <TableColumn fx:id="tcURL" prefWidth="104.39998704195023" text="URL" />
-                  <TableColumn fx:id="tcInfo" minWidth="0.0" prefWidth="158.80001831054688" text="Info" />
-                  <TableColumn fx:id="tcCheckWith" prefWidth="150.79998779296875" text="Check With" />
-                  <TableColumn fx:id="tcSoftware" prefWidth="167.4000244140625" text="Software" />
+                  <TableColumn fx:id="tcURL" prefWidth="361.0" text="URL" />
+                  <TableColumn fx:id="tcInfo" minWidth="0.0" prefWidth="596.0" text="Info" />
+                  <TableColumn fx:id="tcCheckWith" prefWidth="79.0" text="Check With" />
+                  <TableColumn fx:id="tcSoftware" prefWidth="61.0" text="Software" />
+                  <TableColumn fx:id="tcPrio" prefWidth="50.0" text="Prio" />
+                  <TableColumn fx:id="tcisDone" prefWidth="52.0" text="Done" />
                </columns></TableView>
-            <HBox fx:id="hBoxPages" />
+            <HBox>
+               <children>
+                  <HBox fx:id="hBoxPages" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <HBox>
+                     <children>
+                        <Button fx:id="btnAddTicket" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#addRegion" text="+" textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children></HBox>
          </children>
       </VBox>
    </children>

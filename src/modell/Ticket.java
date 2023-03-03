@@ -2,8 +2,8 @@ package modell;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.CheckBox;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ticket {
@@ -11,13 +11,19 @@ public class Ticket {
     private String checkWith;
     private String info;
     private String software;
+    private String prio;
+    private CheckBox isDone;
+    private int id;
     private static ObservableList ticketList = FXCollections.observableArrayList();
 
-    public Ticket(String url, String checkWith, String info, String software) {
+    public Ticket(String url, String checkWith, String info, String software, String prio, CheckBox isDone, int id) {
         this.url = url;
         this.checkWith = checkWith;
         this.info = info;
         this.software = software;
+        this.prio = prio;
+        this.isDone = isDone;
+        this.id = id;
         ticketList.add(this);
     }
 
@@ -53,6 +59,30 @@ public class Ticket {
         this.software = software;
     }
 
+    public String getPrio() {
+        return prio;
+    }
+
+    public void setPrio(String prio) {
+        this.prio = prio;
+    }
+
+    public CheckBox getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(CheckBox isDone) {
+        this.isDone = isDone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public static List<Ticket> getTicketList() {
         return ticketList;
     }
@@ -64,6 +94,8 @@ public class Ticket {
                 ", checkWith='" + checkWith + '\'' +
                 ", info='" + info + '\'' +
                 ", software='" + software + '\'' +
+                ", prio='" + prio + '\'' +
+                ", isDone=" + isDone.toString() +
                 '}';
     }
 }
